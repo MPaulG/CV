@@ -10,8 +10,9 @@
 
     <question>What existing ways of making a visual circle do we know of that we can make using software?</question>
       <questionResponse>I know how to make a visual circle by writing HTML code and styling with CSS code.</questionResponse>
-        <questionResponseLocation>See the file "HTMLCSSCircle.html" in the same directory as this file for an example</questionResponseLocation>
+        <questionResponseLocation>See the file HTMLCSSCircle.html in the same directory as this file for an example</questionResponseLocation>
       <questionResponse>I know how to make a visual circle using graphic software such as Inkscape and GIMP.</questionResponse>
+        <questionResponseLocation>See the file CircleDrawing.svg in the same directory as this file for an example of a circle made with Inkscape.</questionResponseLocation>
       <questionResponse>I know how to make a visual circle with other proprietary software.</questionResponse>
  </Idea>
 </Circle>
