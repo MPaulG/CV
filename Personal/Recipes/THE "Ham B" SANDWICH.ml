@@ -1,4 +1,7 @@
 <Sandwich>
+ <Name>
+   THE "Ham B" SANDWICH
+ </>
   <Ingredients>
     <1> One Onion Bagel </>
     <2> Four Slices of Uncured Virginia Ham </>
