@@ -2,17 +2,35 @@
   <head>
     <title>Circle with HTML & CSS</title>
     <style type="text/css">
-      body { font-size: 11rem; }
+      html { font-size: 11rem; /* By setting the font-size attribute of the HTML tag with 11em
+                                    a style that is set with 1rem as the size value within the body
+                                    will be set to 11em. */}
       circle {
-        width: 1em;
-        height: 1em;
+        width: 1rem;
+        height: 1rem;
         display: inline-block;
-        border-radius: 0.5em;
+        border-radius: 0.5rem;
+        background-color: red;
+      }
+      circletwo {
+        width: 0.6rem;
+        height: 0.6rem;
+        display: inline-block;
+        border-radius: 0.3rem;
+        background-color: red;
+      }
+      circlethree {
+        width: 0.36rem;
+        height: 0.36rem;
+        display: inline-block;
+        border-radius: 0.18rem;
         background-color: red;
       }
     </style>
   </head>
   <body>
     <circle></circle>
+    <circletwo></circletwo>
+    <circlethree></circlethree>
   </body>
 </html>
