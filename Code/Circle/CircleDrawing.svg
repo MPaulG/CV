@@ -50,9 +50,9 @@
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1">
+     inkscape:label="This"
+     inkscape:groupmode="thisgroup"
+     id="thisgroupisit">
     <circle
        style="fill:#fb0000;fill-opacity:1;stroke:#2e2e73;stroke-width:0.26458332;stroke-opacity:0.33000004"
        id="path819"
