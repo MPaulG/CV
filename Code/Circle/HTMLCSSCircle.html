@@ -12,6 +12,8 @@
         border-radius: 0.5rem;
         background-color: red;
       }
+        circle:hover { background-color: gray; transition: 1s background-color ease }
+
       circletwo {
         width: 0.6rem;
         height: 0.6rem;
@@ -19,13 +21,21 @@
         border-radius: 0.3rem;
         background-color: red;
       }
+        circletwo:hover { background-color: grey; transition: 1s background-color ease }
+
       circlethree {
         width: 0.36rem;
         height: 0.36rem;
         display: inline-block;
         border-radius: 0.18rem;
         background-color: red;
+        transition: 1s background-color ease; /* By setting transition in circlethree CSS rules 
+                                                  instead of circlethree:hover the transistion 
+                                                  effect will go on hover (or touch) in one di-
+                                                  rection and then will go the opposite direc-
+                                                  tion when hover (or touch) exits. */
       }
+        circlethree:hover { background-color: gray; }
     </style>
   </head>
   <body>
