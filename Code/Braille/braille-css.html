@@ -1,0 +1,154 @@
+<html>
+<head>
+	<title>Braille - CSS</title>
+	<style>
+	  h5 {
+	  	margin: 10px 0px;
+      text-align: center;
+	  }
+    .letter {
+      margin-right: 15px;
+    }
+	  .braille-letter {
+	  	width: 40px;
+	  	height: 60px;
+	  	display: block;
+	  	float: left;
+	  	position: relative;
+	  }
+	  .braille-letter span {
+	  	position: absolute;
+	  	width: 15px;
+	  	height: 15px;
+	  	border-radius: 100%;
+	  }
+	  .braille-letter span:first-child {
+	  	top: 0px;
+	  	left: 0px;
+	  }
+	  .braille-letter span:nth-child(2) {
+	  	top: 0px;
+	  	left: 20px;
+	  }
+	  .braille-letter span:nth-child(3) {
+	  	top: 20px;
+	  	left: 0px;
+	  }
+	  .braille-letter span:nth-child(4) {
+	  	top: 20px;
+	  	left: 20px;
+	  }
+	  .braille-letter span:nth-child(5) {
+	  	top: 40px;
+	  	left: 0px;
+	  }
+	  .braille-letter span:last-child {
+	  	top: 40px;
+	  	left: 20px;
+	  }
+	  .braille-letter span.raised {
+	  	background-color: black;
+	  }
+	  .letter {
+	  	display: inline-block;
+	  }
+	</style>
+
+  <script type="text/javascript" src="exception.js"></script>
+	<script type="text/javascript" src="braille-alphabet.js"></script>
+</head>
+<body id="brailleDocumentBody">
+  <h4>Braille</h4>
+
+  <div class="letter">
+  	<h5>A</h5>
+	  <span id="aHTML" class="braille-letter">
+	    <span class="raised"></span>
+	    <span></span>
+	    <span></span>
+	    <span></span>
+	    <span></span>
+	    <span></span>
+	  </span>
+  </div>
+
+  <div class="letter">
+  	<h5>B</h5>
+	  <span id="bHTML" class="braille-letter">
+	    <span class="raised"></span>
+	    <span></span>
+	    <span class="raised"></span>
+	    <span></span>
+	    <span></span>
+	    <span></span>
+	  </span>
+  </div>
+
+  <div id="makeLetter">
+    <input type="text" id="makeBrailleValue" />
+    <button onclick="makeBraille()" id="makeLetterButton">Show Braille</button>
+  </div>
+
+  <div id="BrailleTimedOutput"></div>
+
+  <script>
+    var A, B, C;
+
+    function endForNow() {
+      A = B = C = null;
+    }
+
+    function startForNow() {
+      C = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+      var count = C.length;
+      var countdown = 0;
+
+      B = function () {
+        var bto = document.getElementById("BrailleTimedOutput");
+        var bletter = brailleLetter(C[countdown]);
+
+        if (countdown === count - 1) {
+          countdown = 0;
+          bto.innerHTML = "";
+        } else {
+          bto.appendChild(bletter);
+          countdown++;
+        }
+      };
+
+      A = setInterval(B, 2000);
+    }
+
+    startForNow();
+
+    let makeLetterButton = document.getElementById("makeLetterButton");
+    let catches = [];
+
+    function logCatch(e, optional) {
+      optional ? catches.push({e:e, o:optional}) : catches.push(e);
+    }
+
+    function makeBraille () {
+    	let inputText = document.getElementById("makeBrailleValue").value;
+    	let inputTextArray = inputText.split("");
+    	let brailleDocumentBody = document.getElementById("brailleDocumentBody");
+
+      let brailleLetterMade;
+
+    	for (let i = 0; i < inputTextArray.length; i++) {
+        try {
+  	    	brailleLetterMade = brailleLetter(inputTextArray[i]);
+        }
+        catch (e) {
+          logCatch(e);
+        } 
+        finally {
+          endForNow();
+        }
+
+	    	brailleDocumentBody.appendChild(brailleLetterMade);
+    	}
+    }
+  </script>
+</body>
+</html>
